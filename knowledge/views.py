@@ -26,7 +26,7 @@ ALLOWED_MODS = {
 
 def get_my_questions(request):
 
-    if settings.LOGIN_REQUIRED and not request.user.is_authenticated():
+    if settings.LOGIN_REQUIRED and not request.user.is_authenticated:
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
 
     if request.user.is_anonymous():
@@ -39,7 +39,7 @@ def get_my_questions(request):
 def knowledge_index(request,
                     template='django_knowledge/index.html'):
 
-    if settings.LOGIN_REQUIRED and not request.user.is_authenticated():
+    if settings.LOGIN_REQUIRED and not request.user.is_authenticated:
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
 
     questions = Question.objects.can_view(request.user)\
@@ -61,7 +61,7 @@ def knowledge_list(request,
                    template='django_knowledge/list.html',
                    Form=QuestionForm):
 
-    if settings.LOGIN_REQUIRED and not request.user.is_authenticated():
+    if settings.LOGIN_REQUIRED and not request.user.is_authenticated:
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
 
     search = request.GET.get('title', None)
@@ -102,7 +102,7 @@ def knowledge_thread(request,
                      template='django_knowledge/thread.html',
                      Form=ResponseForm):
 
-    if settings.LOGIN_REQUIRED and not request.user.is_authenticated():
+    if settings.LOGIN_REQUIRED and not request.user.is_authenticated:
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
     
     try:
@@ -161,7 +161,7 @@ def knowledge_moderate(
 
     """
 
-    if settings.LOGIN_REQUIRED and not request.user.is_authenticated():
+    if settings.LOGIN_REQUIRED and not request.user.is_authenticated:
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
 
     if request.method != 'POST':
@@ -201,7 +201,7 @@ def knowledge_ask(request,
                   template='django_knowledge/ask.html',
                   Form=QuestionForm):
 
-    if settings.LOGIN_REQUIRED and not request.user.is_authenticated():
+    if settings.LOGIN_REQUIRED and not request.user.is_authenticated:
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
 
     if request.method == 'POST':
