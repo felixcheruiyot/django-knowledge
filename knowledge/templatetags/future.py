@@ -8,3 +8,7 @@ register = Library()
 def cycle(*args, **kwargs):
     ''' A stub to get SortableTabularInline to work '''
     return cycle_original(*args, **kwargs)
+
+@register.tag
+def url(*args, **kwargs):
+    return " "
