@@ -1,4 +1,4 @@
-from django.conf.urls import path, re_path, include
+from django.urls import path, re_path, include
 
 urlpatterns = [
     path('', include(([
