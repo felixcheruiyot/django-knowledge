@@ -29,7 +29,7 @@ def get_my_questions(request):
     if settings.LOGIN_REQUIRED and not request.user.is_authenticated:
         return HttpResponseRedirect(settings.LOGIN_URL+"?next=%s" % request.path)
 
-    if request.user.is_anonymous():
+    if request.user.is_anonymous:
         return None
     else:
         return Question.objects.can_view(request.user)\
